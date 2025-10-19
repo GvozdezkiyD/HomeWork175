@@ -6,9 +6,44 @@ DVC-версии, тесты/CI, REST API на FastAPI, Docker, монитори
 ## Данные
 UCI "Default of Credit Card Clients".`data/raw/UCI_Credit_Card.csv` (версируется DVC).
 
+## Структура проекта
+```
+├── data/
+│   ├── raw/                      # исходные данные (класть сюда UCI_Credit_Card.csv)
+│   ├── processed/                # train.csv / test.csv после подготовки
+│   └── expectations/             # отчёты валидации (Pandera/GE) .json
+├── src/
+│   ├── data/
+│   │   ├── make_dataset.py       # подготовка датасета и сплит
+│   │   └── validation.py         # валидация данных (Pandera/GE)
+│   ├── features/
+│   │   └── build_features.py     # генерация признаков (биннинги, ratio и т.п.)
+│   ├── models/
+│   │   ├── pipeline.py           # sklearn Pipeline (preprocess + classifier)
+│   │   └── train.py              # обучение, метрики, MLflow, ROC
+│   └── api/
+│       └── app.py                # FastAPI /predict
+├── monitor/
+│   └── drift_monitor.py          # расчёт PSI и отчёт
+├── models/
+│   └── credit_default_model.pkl  # сохранённая модель (joblib)
+├── reports/
+│   ├── figures/
+│   │   └── roc_curve.png         # ROC-кривая
+│   └── drift/                    # 
+├── .github/workflows/ci.yml      # pytest + flake8 + black + валидация данных
+├── dvc.yaml                      # пайплайн DVC (prepare -> train)
+├── dvc.lock                      # «заморозка» версий данных/команд
+├── Makefile                      # make run-all / run-api / dvc / docker (Linux/macOS)
+├── run_all.ps1                   # полный запуск в Windows PowerShell
+├── Dockerfile                    # контейнер для API
+├── requirements.txt              # зависимости
+└── README.md
+```
+
 ## Быстрый старт
 ```bash
-python -m venv .venv && source .venv/bin/activate  # Windows: .venv\\Scripts\\activate
+python -m venv .venv && source .venv/bin/activate  # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 
 #  dvc init && dvc add data/raw/UCI_Credit_Card.csv
@@ -104,7 +139,7 @@ make clean         # очистка артефактов (data/processed, models
 ```powershell
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 
-.\run_all.ps1
+\.run_all.ps1
 
 ```
 
@@ -115,4 +150,3 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 ```
 
 Таким образом, весь процесс — от подготовки данных до финального обучения и расчёта метрик — можно выполнить **одной командой**.
-
