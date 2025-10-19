@@ -1,0 +1,19 @@
+cmd: python src/data/make_dataset.py
+deps:
+- path: data/raw/UCI_Credit_Card.csv
+  hash: md5
+  md5: 940b416bb13a9b24bb5c9e1589284005
+  size: 2862995
+- path: src/data/make_dataset.py
+  hash: md5
+  md5: 4193c2b29b696f53e672b426e0ee06e1
+  size: 2150
+outs:
+- path: data/processed/test.csv
+  hash: md5
+  md5: 2dda138008aee1b8bfb43bbe2c42ee00
+  size: 735839
+- path: data/processed/train.csv
+  hash: md5
+  md5: 9b51122b74cab85d76151fa699df3cf2
+  size: 2941548

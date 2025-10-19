@@ -1,0 +1,31 @@
+cmd: python src/models/train.py
+deps:
+- path: data/processed/test.csv
+  hash: md5
+  md5: 2dda138008aee1b8bfb43bbe2c42ee00
+  size: 735839
+- path: data/processed/train.csv
+  hash: md5
+  md5: 9b51122b74cab85d76151fa699df3cf2
+  size: 2941548
+- path: src/features/build_features.py
+  hash: md5
+  md5: 8c4b7736c0d0aa34f7f37e0f42ffea7c
+  size: 846
+- path: src/models/pipeline.py
+  hash: md5
+  md5: 91ef471753cd6ac210810ccf1aa33a61
+  size: 1268
+- path: src/models/train.py
+  hash: md5
+  md5: 6377c9a3c8d9661e3fb88afae50abf6b
+  size: 4284
+outs:
+- path: models/credit_default_model.pkl
+  hash: md5
+  md5: bb084e501148eed360083b4bc759e714
+  size: 144461
+- path: reports/figures/roc_curve.png
+  hash: md5
+  md5: 5ad6ba25980ec12f4dc9bee4d7faccf5
+  size: 40317

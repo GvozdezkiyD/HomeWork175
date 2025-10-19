@@ -1,0 +1,12 @@
+__pycache__/
+.mlflow/
+artifacts/
+.env
+*.pkl
+*.log
+data/processed/
+models/
+reports/figures/
+reports/drift/
+.notebooks/
+**/.ipynb_checkpoints

@@ -1,0 +1,14 @@
+artifact_uri: file:C:/Users/admin/Yandex.Disk/work/Работа/77779/credit-scoring-model/credit-scoring-model/mlruns/697809503621907951/9c677812fe714d7cbf7085a12613461a/artifacts
+end_time: 1760870302754
+entry_point_name: ''
+experiment_id: '697809503621907951'
+lifecycle_stage: active
+run_id: 9c677812fe714d7cbf7085a12613461a
+run_name: gbdt_grid
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1760870256769
+status: 4
+tags: []
+user_id: admin

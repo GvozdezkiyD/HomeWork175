@@ -1,0 +1,16 @@
+pandas
+numpy
+scikit-learn
+matplotlib
+seaborn
+mlflow
+joblib
+fastapi
+uvicorn
+pydantic
+great-expectations
+dvc
+pytest
+flake8
+black
+isort
